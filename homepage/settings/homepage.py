@@ -24,6 +24,7 @@ third_party_apps = (
 
 homepage_apps = (
     'homepage.core',
+    'homepage.blog',
 )
 
 INSTALLED_APPS = homepage_apps + third_party_apps + django_apps
@@ -58,8 +59,8 @@ STATICFILES_FINDERS = (
 
 TEMPLATE_LOADERS = (
     ('pyjade.ext.django.Loader',(
-        'django.template.loaders.filesystem.Loader',
         'django.template.loaders.app_directories.Loader',
+        'django.template.loaders.filesystem.Loader',
     )),
 )
 

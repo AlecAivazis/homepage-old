@@ -12,12 +12,13 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 # import the homepageapplications
-from . import core
+from . import core, blog
 
 # define the primary url patterns
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'', include(core.urls)),
+    url(r'(?i)blog/', include(blog.urls)),
     # add the static urls
 ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
