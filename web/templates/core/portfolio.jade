@@ -1,0 +1,26 @@
+//-*- Jade -*-
+//-*- coding: utf-8 -*-
+//-
+//- Alec Aivazis <alec@aivazis.com>
+//- 
+//- (c) 2014-2015 all rights reserved
+//-
+
+// my portfolio
+
+extends index
+
+- load staticfiles
+
+
+block title
+    | My Portfolio
+
+block content
+    #portfolio
+        for project in view.projects
+            img.portfolioItem(src="{% static 'uploads/' %}{{project.preview.url}}")
+        .cf
+
+
+//- end of file
