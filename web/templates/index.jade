@@ -27,32 +27,17 @@ append js
 
 append body
   aside
-    img(src="{% static 'images/me.png' %}")
-    section.title
-      | Hi,
-      br
-      | I'm Alec Aivazis.
-    section
-      p I'm a freelance programmer with experience in a variety of web technologies.
-    footer
-      a(href="http://www.facebook.com/aaivazis")
-        i.icon.icon-facebook
-      a(href="http://www.twitter.com/aaivazis")
-        i.icon.icon-twitter
-      a(href="http://www.github.com/aaivazis")
-        i.icon.icon-github
+    include bio
   article(ng-app="homepage")
     header
-      nav
-        button
-          i.icon.icon-bars 
+      button
+        i.icon.icon-bars 
       section.title
         block title
       section
         | Alec Aivazis
 
-    section.content
-      block content
+    block content
 
   
 

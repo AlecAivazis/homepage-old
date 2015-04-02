@@ -17,9 +17,9 @@ block title
     | My Portfolio
 
 block content
-    #portfolio
+    section#portfolio
         for project in view.projects
-            img.portfolioItem(src="{% static 'uploads/' %}{{project.preview.url}}")
+            img.portfolioItem(src="{% static 'uploads/' %}{{project.preview.url}}", data-name="{{project.title}}")
         .cf
 
 

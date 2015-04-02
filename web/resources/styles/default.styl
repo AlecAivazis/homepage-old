@@ -46,7 +46,7 @@ aside
   bottom: 0
   left: 0
 
-  +below($lowerBreakPoint)
+  +below($upperBreakPoint)
     display: none
 
   min-height: 600px
@@ -112,7 +112,7 @@ article
   right: 0
   padding-bottom: 30px
 
-  +below($lowerBreakPoint)
+  +below($upperBreakPoint)
     cf()
     width: 100%
 
@@ -126,7 +126,7 @@ article
       outline: 0
       font-size: 20px
     
-    nav
+    button
       col(1/6)
       
     section
@@ -151,9 +151,6 @@ article
         col(1/3, cycle: 3)
         box-shadow: 5px 5px 5px #B6B6B6
         border-radius: 10px
-
-        +between($lowerBreakPoint, $upperBreakPoint)
-          col(1/2, cycle:2, uncycle:3)
 
         +below($lowerBreakPoint)
           col(1/2, cycle:2, uncycle:3)
