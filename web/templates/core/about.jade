@@ -12,8 +12,14 @@ extends index
 
 - load staticfiles
 
+block articleClass
+    | about
 
 block title
     | About Me
+
+block content
+    section#aboutInfo
+        include bio
 
 //- end of file

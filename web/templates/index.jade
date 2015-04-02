@@ -28,14 +28,15 @@ append js
 append body
   aside
     include bio
-  article(ng-app="homepage")
-    header
-      button
-        i.icon.icon-bars 
-      section.title
-        block title
-      section
-        | Alec Aivazis
+  article(class="{%block articleClass %}{%endblock%}")
+    block header
+      header
+        button
+          i.icon.icon-bars 
+        section.title
+          block title
+        section
+          | Alec Aivazis
 
     block content
 
