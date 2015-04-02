@@ -18,13 +18,20 @@ class Home(TemplateView):
     """
     template_name = 'core/about.jade'
 
+
 class Portfolio(TemplateView):
     """
-    render the index template
+    render the portfolio
     """
     template_name = 'core/portfolio.jade'
     # add the various projects to the view
     projects = Project.objects.all()
 
+
+class About(TemplateView):
+    """
+    render the about me page
+    """
+    template_name = 'core/about.jade'
 
 # end of file
