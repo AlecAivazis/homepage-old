@@ -19,11 +19,11 @@ class Home(TemplateView):
     template_name = 'splash.jade'
 
 
-class Portfolio(TemplateView):
+class Projects(TemplateView):
     """
     render the portfolio
     """
-    template_name = 'core/portfolio.jade'
+    template_name = 'core/projects.jade'
     # add the various projects to the view
     projects = Project.objects.all()
 
