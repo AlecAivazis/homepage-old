@@ -23,7 +23,6 @@ third_party_apps = (
  )
 
 homepage_apps = (
-    'homepage.api',
     'homepage.core',
     'homepage.blog',
 )
