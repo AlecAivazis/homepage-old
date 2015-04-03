@@ -8,10 +8,14 @@
 
 extends base
 
-block body
-    a(href="/about") about
-    a(href="/blog") blog
-    a(href="/portfolio") portfolio
+- load staticfiles
 
+block body
+    #splash(style="background-image: url({% static 'images/splash.png' %});")
+        section Welcome to my playground.
+        nav
+            a(href="/about") about
+            a(href="/portfolio") portfolio
+            a(href="/blog") blog
 
 //-
