@@ -33,5 +33,6 @@ class About(TemplateView):
     render the about me page
     """
     template_name = 'core/about.jade'
+    
 
 # end of file
