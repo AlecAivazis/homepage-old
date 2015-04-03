@@ -16,7 +16,7 @@ class Home(TemplateView):
     """
     render the index template
     """
-    template_name = 'core/about.jade'
+    template_name = 'splash.jade'
 
 
 class Portfolio(TemplateView):
@@ -33,6 +33,6 @@ class About(TemplateView):
     render the about me page
     """
     template_name = 'core/about.jade'
-    
+
 
 # end of file
