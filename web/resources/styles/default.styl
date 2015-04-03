@@ -52,6 +52,7 @@ h1
   font-size: 1.5em
   margin-top: 5%
 
+
 // the about me sidebar should look just the same
 aside, #aboutInfo
   background: $dark
@@ -90,9 +91,6 @@ aside, #aboutInfo
    
     p
       font-size: 18px 
-  
-  .extra
-    display: none
 
   footer
     absolute: bottom 20px left 0
@@ -111,6 +109,9 @@ aside, #aboutInfo
 
       &:nth-child(2)
         margin-right: 20px
+  
+.extra
+  display: none
 
     
 article
@@ -306,6 +307,9 @@ article
 
   header a
     display: block !important
+
+  .extra
+    inline-block()
 
 
 +below($lowerBreakPoint)
