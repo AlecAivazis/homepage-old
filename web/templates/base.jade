@@ -23,6 +23,7 @@ html
         
     {% compress css %}
     block css
+    link(rel="stylesheet", type="text/css", href="{% static 'thirdparty/normalize.css/normalize.css' %}")
     link(rel="stylesheet", type="text/stylus", href="{% static 'styles/default.styl' %}")
     {% endcompress %}
 
@@ -42,13 +43,13 @@ html
                 li 
                     i.icon.icon-smile
                     | about
-            a(href="/blog")
-                li 
-                    i.icon.icon-pencil
-                    | blog
             a(href="/portfolio")
                 li 
                     i.icon.icon-doc
                     | portfolio
+            a(href="/blog")
+                li 
+                    i.icon.icon-pencil
+                    | blog
 
 // end of file

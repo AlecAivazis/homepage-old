@@ -16,12 +16,9 @@ extends base
 append head
   script(src="//use.fonticons.com/f7b7ea2b.js")
 
-append css
-  link(rel="stylesheet", type="text/css", href="{% static 'thirdparty/normalize.css/normalize.css' %}")
 
 append js
   script(src="{% static 'thirdparty/jquery/dist/jquery.js' %}", type="text/javascript")
-  script(src="{% static 'thirdparty/underscore/underscore.js' %}", type="text/javascript")
   script(src="{% static 'thirdparty/underscore/underscore.js' %}", type="text/javascript")
 
   script(src="{% static 'scripts/core.coffee' %}", type="text/coffeescript")
@@ -38,7 +35,7 @@ append body
           block title
         a(href="/")
           section
-            | Alec Aivazis
+            | Alec&nbsp;Aivazis
 
     block content
 
