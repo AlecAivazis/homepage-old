@@ -9,6 +9,7 @@
 // the base html template
 
 - load compress
+- load staticfiles
 
 html
   head
@@ -22,6 +23,7 @@ html
         
     {% compress css %}
     block css
+    link(rel="stylesheet", type="text/stylus", href="{% static 'styles/default.styl' %}")
     {% endcompress %}
 
     {% compress js %}
