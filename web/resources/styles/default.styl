@@ -247,20 +247,24 @@ article
     &.about
       span(2/3)
 
-  #navigation
-    ul
-      cf()
-      width: 100%
-      text-align: center
-
-    .close
-      right: 5%
 
 
 +below($lowerBreakPoint)
 
   #portfolio img
     col(1/2, cycle:2, uncycle:3)
+    
+  #navigation
+    ul
+      cf()
+      width: 100%
+      text-align: left
+
+      li
+        padding-left: 20%
+
+    .close
+      right: 5%
 
         
 
