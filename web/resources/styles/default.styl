@@ -193,28 +193,19 @@ article
 
 // responsive handlers
 
-#aboutInfo
++below($upperBreakPoint)
+  aside
+    display: none
 
-  +between($lowerBreakPoint+50, $upperBreakPoint)
-    display: block
-
-  +below($lowerBreakPoint+50px)
-    width: 100%
-    padding: 50px
-
-    .extra
-      display: block
-
-article
-  +below($upperBreakPoint)
+  article
     cf()
     width: 100%
 
     &.about
       span(2/3)
 
-#portfolio img
-  +below($lowerBreakPoint)
++below($lowerBreakPoint)
+  #portfolio img
     col(1/2, cycle:2, uncycle:3)
         
 
