@@ -27,6 +27,20 @@ $lowerBreakPoint = 475px
   box-sizing: border-box
 
 
+.cf:after 
+    visibility: hidden
+    display: block
+    font-size: 0
+    content: " "
+    clear: both
+    height: 0
+    
+.cf  display: inline-block
+/* start commented backslash hack \*/
+* html .cf  height: 1%
+.cf display: block
+
+
 body
   margin: 0
   padding: 0
@@ -73,6 +87,9 @@ aside, #aboutInfo
    
     p
       font-size: 18px 
+  
+  .extra
+    display: none
 
   footer
     absolute: bottom 20px left 0
@@ -89,40 +106,6 @@ aside, #aboutInfo
       &:nth-child(2)
         margin-right: 20px
 
-
-aside
-  +below($upperBreakPoint)
-    display: none
-
-
-#aboutInfo
-  
-  .extra
-    display: none
-
-
-  +below($lowerBreakPoint+50px)
-    cf()
-    width: 100%
-    padding: 50px
-
-    .extra
-      display: block
-    
-
-.cf:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0;
-    }
-.cf { display: inline-block; }
-/* start commented backslash hack \*/
-* html .cf { height: 1%; }
-.cf { display: block; }
-      
     
 article
   span(2/3)
@@ -191,12 +174,7 @@ article
         img
           width: 100%
 
-  +below($upperBreakPoint)
-      cf()
-      width: 100%
-
-      &.about
-        span(2/3)
+  
 
 #portfolio
     
@@ -211,9 +189,33 @@ article
         box-shadow: 5px 5px 5px #B6B6B6
         border-radius: 10px
 
-        +below($lowerBreakPoint)
-          col(1/2, cycle:2, uncycle:3)
+        
 
+// responsive handlers
+
+#aboutInfo
+
+  +between($lowerBreakPoint+50, $upperBreakPoint)
+    display: block
+
+  +below($lowerBreakPoint+50px)
+    width: 100%
+    padding: 50px
+
+    .extra
+      display: block
+
+article
+  +below($upperBreakPoint)
+    cf()
+    width: 100%
+
+    &.about
+      span(2/3)
+
+#portfolio img
+  +below($lowerBreakPoint)
+    col(1/2, cycle:2, uncycle:3)
         
 
 
