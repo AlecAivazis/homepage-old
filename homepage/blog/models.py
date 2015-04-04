@@ -73,7 +73,7 @@ class Post(models.Model):
             # generate the html document using github's api
             content = ''
             # define the request header
-            header = {'Content-Type': 'text/plain'} 
+            headers = {'Content-type': 'text/plain'}
 
             # make sure that the body is in the right encoding
             if type(self.body) == str:
@@ -89,7 +89,8 @@ class Post(models.Model):
                 raise FieldError('Unable to encode post for GitHub api.')
 
             # make a request to the github servers
-            request = requests.post('https://api.github.com/markdown/raw', headers=header, data=content)
+            request = requests.post('https://api.github.com/markdown/raw', 
+                                            headers=headers, data=content)
 
             # return the response text
             return request.text.encode('utf-8')
