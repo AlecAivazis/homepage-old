@@ -14,7 +14,8 @@ from .views import *
 
 # base urls
 urlpatterns = patterns('',
-    url(r'(?i)^$', Latest.as_view()),
+    url(r'^$', Latest.as_view()),
+    url(r'(?P<slug>[\w-]+)', PostDetail.as_view(), name="post_detail"),
 )
 
 # end of file

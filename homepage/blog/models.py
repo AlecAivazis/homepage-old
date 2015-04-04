@@ -47,9 +47,17 @@ class Post(models.Model):
 
     @property
     def preview(self):
-        """ generate a text preview of the post based on its content """
+        """ Generate a text preview of the post based on its content """
         # return the first 30 words of the body
         return " ".join(self.body.split(' ')[0:31]) + " ..."
+
+
+    @models.permalink
+    def get_absolute_url(self):
+        """ Return a permanent URL where this post can be viewed """
+        return ('post_detail', (),{
+            'slug': self.title.lower().replace(' ', '-')
+            })
     
 
 

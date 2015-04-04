@@ -6,14 +6,14 @@
 # this file describes the for blog
 
 # django imports
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 
 # homepage imports
 from .models import Post
 
-class Latest(TemplateView):
+class Latest(ListView):
     """
-    render the index template
+    Handle the latest posts
     """
     template_name = 'blog/list.jade'
 
@@ -23,12 +23,19 @@ class Latest(TemplateView):
         """
         # grab the parent context
         context = super().get_context_data(**kwargs)
-        # add the latests posts 
-        context['posts'] = Post.objects.latest_first()
         # add the title of the page
         context['title'] = 'Latests Posts'
         # return the new context
         return context
+
+
+    def get_queryset(self):
+        """ Return the latest posts """
+        return Post.objects.latest_first()
+
+
+class PostDetail(Latest):
+    pass
 
 
 # end of file

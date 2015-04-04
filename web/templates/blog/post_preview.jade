@@ -7,11 +7,11 @@ section.postPreview
     
     section.body {{post.preview}}
     footer
-        a.readMore(href="#")
+        a.readMore(href="{{post.get_absolute_url}}")
             i.icon.icon-long-arrow-right
             | Read more
         section.tagCloud
             i.icon.icon-tags
-            a.tag(href="#") hello
-            a.tag(href="#") hello
+            a.tag(href="#") backend
+            a.tag(href="#") django
         .cf
