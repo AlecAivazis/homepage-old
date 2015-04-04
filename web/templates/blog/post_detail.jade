@@ -13,12 +13,20 @@ extends index
 
 - load staticfiles
 
+
 append css
     link(rel="stylesheet", type="text/stylus", href="{% static 'styles/blog.styl' %}")
 
 
 block title
-    | {{title}}
+    &nbsp;
 
+block content
+    #post
+        h1 {{object.title}}
+        section 
+            {% autoescape off %}
+            | {{object.body_clean}}
+            {% endautoescape %}
 
 // end of file
