@@ -62,9 +62,9 @@ class Post(models.Model):
     @models.permalink
     def get_absolute_url(self):
         """ Return a permanent URL where this post can be viewed """
-        return ('post_detail', (),{
+        return ('post_detail', (), {
             'slug': self.slug
-            })
+        })
 
 
     def save(self, *args, **kwargs):
