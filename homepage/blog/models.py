@@ -48,7 +48,8 @@ class Post(models.Model):
     @property
     def preview(self):
         """ generate a text preview of the post based on its content """
-        return self.body + " ..."
+        # return the first 30 words of the body
+        return " ".join(self.body.split(' ')[0:31]) + " ..."
     
 
 
