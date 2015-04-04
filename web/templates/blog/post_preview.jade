@@ -1,6 +1,6 @@
 section.postPreview
     header
-        a(href="#")
+        a(href="{{post.get_absolute_url}}")
             h1.title {{post.title}}
         h2.date {{post.post_date | date:"M j, 'y"}}
         .cf
