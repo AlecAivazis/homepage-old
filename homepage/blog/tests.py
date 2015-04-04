@@ -41,4 +41,12 @@ class PostTestCase(TestCase):
         self.assertEqual(earliest, self.first)
 
 
+    def test_retrieve_by_slug(self):
+        """ that that we can retrieve a particular post by its slug """
+        # retrieve the post that has the second's slug
+        retrieved = Post.objects.with_slug(self.second.slug)
+        # verify that the two posts are the same
+        self.assertEqual(retrieved, self.second)
+
+
 # end of file
