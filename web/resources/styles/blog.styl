@@ -69,7 +69,41 @@
 #post
 
     h1 
+        text-align: left
+
+        &.title
+            text-align: center
+            font-size: 30px
+
+    h2
+        margin-bottom: 1%
+
+    p
+        margin: 0 5%
+        font-size: 16px
+        line-height: 24px
+
+    blockquote
+        blockquote: $highlight
+        margin-left: 5%
+
+    code
+        padding: 5px
+        background:#CDD3CC 
+
+    img
+        margin: 20px
+
+    a, a:visited
+        color: black
+        text-decoration: underline
+
+        &:hover
+            color $highlight
+
+    div
         text-align: center
+
 
 
 // responsive handlers
