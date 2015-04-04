@@ -86,7 +86,7 @@ class Post(models.Model):
             # otherwise its some crazy type I don't know about
             else:
                 # throw an exception
-                raise FieldError({'title': 'Unable to encode post body for GitHub api.'})
+                raise FieldError('Unable to encode post for GitHub api.')
 
             # make a request to the github servers
             request = requests.post('https://api.github.com/markdown/raw', headers=header, data=content)
@@ -98,8 +98,6 @@ class Post(models.Model):
         else:
             # throw an exception
             raise ValidationError('Unknown content format.')
-
-
 
 
     @property
@@ -120,7 +118,7 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         """ Make sure we automatically generate the post slugs """
         # if the post has yet to go live or this is the first time its created
-        if self.post_date > timezone.now() or not self.id:
+        if (self.post_date and self.post_date > timezone.now()) or not self.id:
             # set the slug of the post off of the first 50 characters
             self.slug = slugify(Truncator(self.title).chars(50))
         # save the changes
