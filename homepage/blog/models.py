@@ -5,8 +5,9 @@
 #
 # this file describes the models for blog
 
-# import the django models
+# django imports
 from django.db import models
+from django.utils import timezone
 
 
 class PostQuerySet(models.QuerySet):
@@ -15,15 +16,22 @@ class PostQuerySet(models.QuerySet):
     """
     def latest_first(self):
         """
-        Return the posts with the latest one first
+        Return the posts with the latest one first if there are visible entries ;
+        Otherwise return an empty list
         """
-        return self.order_by('-creation_date')
+        return self.visible().order_by('-post_date')
 
     def oldest_first(self):
         """
         Return the posts with the oldest one first
         """
         return self.latest_first().reverse()
+
+    def visible(self):
+        """
+        Return the posts which should be shown to the public
+        """
+        return self.filter(post_date__lte = timezone.now())
 
 
 class Post(models.Model):
@@ -33,6 +41,7 @@ class Post(models.Model):
     title = models.CharField(max_length=1020)
     body = models.TextField()
     creation_date = models.DateTimeField(auto_now_add = True)
+    post_date = models.DateTimeField(blank=True, null=True)
 
     objects = PostQuerySet.as_manager()
 
