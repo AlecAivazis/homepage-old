@@ -6,7 +6,7 @@
 //- (c) 2014-2015 all rights reserved
 //-
 
-// the homepage index
+// a list of posts of the blog
 
 extends index
 
@@ -21,25 +21,7 @@ block title
 
 block content
     section#blog
-        for post in posts
-            include blog/post_preview
-            include blog/post_preview
-            include blog/post_preview
-            include blog/post_preview
-            include blog/post_preview
-            include blog/post_preview
-            include blog/post_preview
-            include blog/post_preview
-            include blog/post_preview
-            include blog/post_preview
-            include blog/post_preview
-            include blog/post_preview
-            include blog/post_preview
-            include blog/post_preview
-            include blog/post_preview
-            include blog/post_preview
-            include blog/post_preview
-            include blog/post_preview
+        for post in object_list
             include blog/post_preview
 
 //- end of file
