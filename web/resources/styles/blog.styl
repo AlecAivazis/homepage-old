@@ -4,6 +4,9 @@
 @import 'jeet'
 @import 'colors'
 
+#blog
+    padding-top: 1.5%
+
 
 .postPreview
 
@@ -29,8 +32,47 @@
 
     a, a:visited
 
-        &:hover h1
+        color: #454640
+
+        &:hover, &:hover h1
             color: $highlight
+
+    footer
+        font-size: 12px
+        margin: 4% 7%
+
+        .readMore
+            span(1/2)
+            font-size: 14px
+
+        section
+            span(1/2)
+            text-align: right
+
+        i
+            margin-right: 2%
+
+        &:hover
+            darken($highlight, 40%)
+    
+        .tagCloud
+
+            a
+                margin-right: 5px
+
+            .tag
+                color: black
+
+                &:hover
+                    color: $highlight
+
+
+// responsive handlers
+
+
++below($lowerBreakPoint)
+    .tagCloud
+        display: none
 
 
 
