@@ -14,7 +14,7 @@ from .views import *
 
 # base urls
 urlpatterns = patterns('',
-    url(r'(?i)^$', Home.as_view()),
+    url(r'(?i)^$', Latest.as_view()),
 )
 
 # end of file

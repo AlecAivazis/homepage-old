@@ -1,7 +1,9 @@
 section.postPreview
     header
-        h1.title {{post.title}}
+        a(href="#")
+            h1.title {{post.title}}
         h2.date {{post.post_date | date:"M j, 'y"}}
         .cf
     
-    section.body {{post.body}}
+    section.body {{post.preview}}
+    #readMore

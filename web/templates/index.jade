@@ -28,14 +28,13 @@ append body
     include bio
   article
     block header
-      header
+      header#pageHeader
         button(onclick="toggleNav()")
           i.icon.icon-bars 
         section.title
           block title
-        a(href="/")
-          section
-            | Alec Aivazis
+        a.extra(href="/")
+          | Alec&nbsp;Aivazis
 
     block content
 

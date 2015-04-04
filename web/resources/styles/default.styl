@@ -8,11 +8,7 @@
 
 // this file describes the default style for homepage
 
-// color pallette
-$darker = #222222
-$dark = #2C2C2C
-$light = #E2E2E2
-$highlight = #008AB4
+
 
 $upperBreakPoint = 750px
 $lowerBreakPoint = 475px
@@ -21,6 +17,7 @@ $lowerBreakPoint = 475px
 @import 'jeet'
 @import 'axis'
 @import 'rupture'
+@import 'colors'
 
 
 // style
@@ -55,6 +52,9 @@ h1, h2
 h2
   font-size: 1em
   margin: 0
+
+a, a:visited
+  text-decoration: none
 
 
 // the about me sidebar should look just the same
@@ -131,7 +131,7 @@ article
   padding-bottom: 30px
 
 
-  header
+  header#pageHeader
 
     margin-bottom: 40px
 
@@ -142,7 +142,7 @@ article
       outline: 0
       font-size: 20px
       
-    section
+    section, a
       span(1/6)
       text-align: right
       font-size: 18px
@@ -153,8 +153,6 @@ article
 
     a, a:visited
       color: #929292
-      text-decoration: none
-      display: none
 
       &:hover
         color: $highlight

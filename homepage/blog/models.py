@@ -45,6 +45,12 @@ class Post(models.Model):
 
     objects = PostQuerySet.as_manager()
 
+    @property
+    def preview(self):
+        """ generate a text preview of the post based on its content """
+        return self.body + " ..."
+    
+
 
 
 # end of file
