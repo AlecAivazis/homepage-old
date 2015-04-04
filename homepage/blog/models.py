@@ -38,7 +38,7 @@ class Post(models.Model):
     """
     The base class for entries in the blog
     """
-    title = models.CharField(max_length=1020)
+    title = models.CharField(max_length=1020, unique=True)
     body = models.TextField()
     creation_date = models.DateTimeField(auto_now_add = True)
     post_date = models.DateTimeField(blank=True, null=True)
