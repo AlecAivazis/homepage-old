@@ -8,6 +8,7 @@
 # django imports
 from django.db import models
 from django.utils import timezone
+from django.utils.text import slugify
 
 
 class PostQuerySet(models.QuerySet):
@@ -33,6 +34,10 @@ class PostQuerySet(models.QuerySet):
         """
         return self.filter(post_date__lte = timezone.now())
 
+    def with_slug(self, slug):
+        """ Return the post with the matching slug """
+        return self.get(slug = slug)
+
 
 class Post(models.Model):
     """
@@ -42,8 +47,10 @@ class Post(models.Model):
     body = models.TextField()
     creation_date = models.DateTimeField(auto_now_add = True)
     post_date = models.DateTimeField(blank=True, null=True)
+    slug = models.SlugField()
 
     objects = PostQuerySet.as_manager()
+
 
     @property
     def preview(self):
@@ -56,8 +63,18 @@ class Post(models.Model):
     def get_absolute_url(self):
         """ Return a permanent URL where this post can be viewed """
         return ('post_detail', (),{
-            'slug': self.title.lower().replace(' ', '-')
+            'slug': self.slug
             })
+        
+
+    def save(self, *args, **kwargs):
+        """ Make sure we automatically generate the post slugs """
+        # if the id has not been set yet (only do once)
+        if not self.id:
+            # set the slug of the post
+            self.slug = slugify(self.title)
+        # save the changes
+        super().save(*args, **kwargs)
     
 
 
