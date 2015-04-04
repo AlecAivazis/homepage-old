@@ -56,7 +56,7 @@ class Post(models.Model):
     def preview(self):
         """ Generate a text preview of the post based on its content """
         # return the first 30 words of the body
-        return " ".join(self.body.split(' ')[0:31]) + " ..."
+        return " ".join(self.body.split(' ')[0:31]) + "..."
 
 
     @models.permalink
@@ -65,12 +65,12 @@ class Post(models.Model):
         return ('post_detail', (),{
             'slug': self.slug
             })
-        
+
 
     def save(self, *args, **kwargs):
         """ Make sure we automatically generate the post slugs """
-        # if the id has not been set yet (only do once)
-        if not self.id:
+        # if the post has yet to go live or this is the first time its created
+        if self.post_date > timezone.now() or not self.id:
             # set the slug of the post
             self.slug = slugify(self.title)
         # save the changes
