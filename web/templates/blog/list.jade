@@ -1,0 +1,45 @@
+//-*- Jade -*-
+//-*- coding: utf-8 -*-
+//-
+//- Alec Aivazis <alec@aivazis.com>
+//- 
+//- (c) 2014-2015 all rights reserved
+//-
+
+// the homepage index
+
+extends index
+
+- load staticfiles
+
+append css
+    link(rel="stylesheet", type="text/stylus", href="{% static 'styles/blog.styl' %}")
+
+
+block title
+    | {{title}}
+
+block content
+    section#blog
+        for post in posts
+            include blog/post_preview
+            include blog/post_preview
+            include blog/post_preview
+            include blog/post_preview
+            include blog/post_preview
+            include blog/post_preview
+            include blog/post_preview
+            include blog/post_preview
+            include blog/post_preview
+            include blog/post_preview
+            include blog/post_preview
+            include blog/post_preview
+            include blog/post_preview
+            include blog/post_preview
+            include blog/post_preview
+            include blog/post_preview
+            include blog/post_preview
+            include blog/post_preview
+            include blog/post_preview
+
+//- end of file
