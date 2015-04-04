@@ -6,7 +6,7 @@
 # this file describes the for blog
 
 # django imports
-from django.views.generic import TemplateView, ListView
+from django.views.generic import ListView, DetailView
 
 # homepage imports
 from .models import Post
@@ -34,8 +34,13 @@ class Latest(ListView):
         return Post.objects.latest_first()
 
 
-class PostDetail(Latest):
-    pass
+class PostDetail(DetailView):
+    """
+    Individual post details
+    """
+
+    queryset = Post.objects
+    template_name = 'blog/post_detail.jade'
 
 
 # end of file
