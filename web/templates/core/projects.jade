@@ -13,13 +13,21 @@ extends index
 - load staticfiles
 
 
+append js
+    script(src="{% static 'scripts/jquery.magnific-popup.js' %}")
+    script(src="{% static 'scripts/projects.coffee' %}", type="text/coffeescript")
+
+append css
+    link(rel="stylesheet" href="{% static 'styles/magnific-popup.css' %}")
+
 block title
     | My Projects
 
 block content
     section#portfolio
         for project in view.projects
-            img.portfolioItem(src="{% static 'uploads/' %}{{project.preview.url}}", data-name="{{project.title}}")
+            a.imageLink(href="{% static 'uploads/' %}{{project.preview.url}}")
+                img.portfolioItem(src="{% static 'uploads/' %}{{project.preview.url}}", data-name="{{project.title}}")
         .cf
 
 

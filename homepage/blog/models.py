@@ -51,7 +51,7 @@ class Post(models.Model):
     body = models.TextField()
     creation_date = models.DateTimeField(auto_now_add = True)
     post_date = models.DateTimeField(blank=True, null=True)
-    slug = models.SlugField()
+    slug = models.SlugField(blank=True)
     format = models.CharField(max_length = 20)
 
     objects = PostQuerySet.as_manager()
