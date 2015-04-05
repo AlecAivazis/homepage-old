@@ -21,7 +21,8 @@ class PostTestCase(TestCase):
 
     def setUp(self):
         """ Create the necessary models for the test case """
-        self.first = Post.objects.create(title="first", body="first", post_date=timezone.now(), format="markdown")
+        self.first = Post.objects.create(title="first", body="first", post_date=timezone.now(), 
+                                                                                format="markdown")
         self.second = Post.objects.create(title="second", body="second", post_date=timezone.now())
         # add different tags to each
         self.first.tags.add('first')
@@ -62,6 +63,7 @@ class PostTestCase(TestCase):
 
     def test_can_clean_markdown(self):
         """ test that we can pass our stuff through a markdown engine """
+        # check that we get a string back
         self.assertIsInstance(self.first.body_clean, str)
 
 
