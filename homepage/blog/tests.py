@@ -18,7 +18,6 @@ class PostTestCase(TestCase):
     The test case for the Post schema
     """
 
-
     def setUp(self):
         """ Create the necessary models for the test case """
         self.first = Post.objects.create(title="first", body="first", post_date=timezone.now(), 
@@ -62,7 +61,7 @@ class PostTestCase(TestCase):
 
 
     def test_can_clean_markdown(self):
-        """ test that we can pass our stuff through a markdown engine """
+        """ test that we can pass a post through a markdown engine """
         # check that we get a string back
         self.assertIsInstance(self.first.body_clean, str)
 
