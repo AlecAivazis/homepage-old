@@ -34,6 +34,29 @@ class Latest(ListView):
         return Post.objects.latest_first()
 
 
+class CategoryList(ListView):
+    """
+    Handle the latest posts
+    """
+    template_name = 'blog/list.jade'
+
+    def get_context_data(self, **kwargs):
+        """
+        Add the necessary data for the template
+        """
+        # grab the parent context
+        context = super().get_context_data(**kwargs)
+        # add the title of the page
+        context['title'] = 'Posts matching "{}"'.format(self.kwargs['tag']) 
+        # return the new context
+        return context
+
+
+    def get_queryset(self):
+        """ Return the latest posts """
+        return Post.objects.with_tag(self.kwargs['tag'])
+
+
 class PostDetail(DetailView):
     """
     Individual post details

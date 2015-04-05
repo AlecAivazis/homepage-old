@@ -23,16 +23,14 @@ class PostQuerySet(models.QuerySet):
     The query set mangaer for blog posts
     """
     def latest_first(self):
-        """
+        """ 
         Return the posts with the latest one first if there are visible entries ;
         Otherwise return an empty list
         """
         return self.visible().order_by('-post_date')
 
     def oldest_first(self):
-        """
-        Return the posts with the oldest one first
-        """
+        """ Return the posts with the oldest one first  """
         return self.latest_first().reverse()
 
     def visible(self):
@@ -44,6 +42,10 @@ class PostQuerySet(models.QuerySet):
     def get_with_slug(self, slug):
         """ Return the post with the matching slug """
         return self.get(slug = slug)
+
+    def with_tag(self, tag):
+        """ Return the posts that have the requested tag """
+        return self.filter(tags__name__in = [tag])
 
 
 class Post(models.Model):

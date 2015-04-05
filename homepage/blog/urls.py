@@ -15,6 +15,7 @@ from .views import *
 # base urls
 urlpatterns = patterns('',
     url(r'^$', Latest.as_view()),
+    url(r'category/(?P<tag>[\w-]+)', CategoryList.as_view(), name="category_list"),
     url(r'(?P<slug>[\w-]+)', PostDetail.as_view(), name="post_detail"),
 )
 
