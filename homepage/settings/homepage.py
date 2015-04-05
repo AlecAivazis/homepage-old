@@ -20,6 +20,7 @@ django_apps = (
 
 third_party_apps = (
     'compressor',
+    'taggit',
  )
 
 homepage_apps = (

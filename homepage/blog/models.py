@@ -5,14 +5,17 @@
 #
 # this file describes the models for blog
 
+# python imports
+import requests
+
 # django imports
 from django.db import models
 from django.utils import timezone
 from django.utils.text import slugify, Truncator
 from django.core.exceptions import FieldError, ValidationError
 
-# python imports
-import requests
+# thirdparty imports
+from taggit.managers import TaggableManager
 
 
 class PostQuerySet(models.QuerySet):
@@ -53,6 +56,9 @@ class Post(models.Model):
     post_date = models.DateTimeField(blank=True, null=True)
     slug = models.SlugField(blank=True)
     format = models.CharField(max_length = 20)
+
+
+    tags = TaggableManager()
 
     objects = PostQuerySet.as_manager()
 

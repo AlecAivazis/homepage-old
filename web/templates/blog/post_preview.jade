@@ -10,8 +10,9 @@ section.postPreview
         a.readMore(href="{{post.get_absolute_url}}")
             i.icon.icon-long-arrow-right
             | Read more
-        section.tagCloud
-            i.icon.icon-tags
-            a.tag(href="#") backend
-            a.tag(href="#") django
-        .cf
+        if post.tags.all
+            section.tagCloud
+                i.icon.icon-tags
+                for tag in post.tags.all
+                    a.tag(href="#") {{tag}}
+            .cf
