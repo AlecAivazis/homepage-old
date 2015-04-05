@@ -19,9 +19,6 @@ def truncate(value, limit=80):
         # Fail silently.
         return value
     
-    # Make sure it's unicode
-    value = value.decode('utf-8')
-    
     # Return the string itself if length is smaller or equal to the limit
     if len(value) <= limit:
         return value

@@ -101,7 +101,7 @@ class Post(models.Model):
                                             headers=headers, data=content)
 
             # return the response text
-            return request.text.encode('utf-8')
+            return request.text
 
         # otherwise it is a format I don't expect
         else:

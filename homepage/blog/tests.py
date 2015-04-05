@@ -21,12 +21,12 @@ class PostTestCase(TestCase):
 
     def setUp(self):
         """ Create the necessary models for the test case """
-        self.first = Post.objects.create(title="first", body="first", post_date=timezone.now())
+        self.first = Post.objects.create(title="first", body="first", post_date=timezone.now(), format="markdown")
         self.second = Post.objects.create(title="second", body="second", post_date=timezone.now())
         # add different tags to each
         self.first.tags.add('first')
         self.second.tags.add('second')
-        
+
 
     def test_filter_post_latest_first(self):
         """ verfiy that the latest post is first  """
@@ -58,6 +58,11 @@ class PostTestCase(TestCase):
         retrieved = Post.objects.get_with_slug(self.second.slug)
         # verify that the two posts are the same
         self.assertEqual(retrieved, self.second)
+
+
+    def test_can_clean_markdown(self):
+        """ test that we can pass our stuff through a markdown engine """
+        self.assertIsInstance(self.first.body_clean, str)
 
 
 
