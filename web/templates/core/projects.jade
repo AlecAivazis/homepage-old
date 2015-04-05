@@ -26,9 +26,8 @@ block title
 block content
     section#portfolio
         for project in view.projects
-            a.imageLink(href="{% static 'uploads/' %}{{project.preview.url}}")
+            a.imageLink(href="{% static 'uploads/' %}{{project.screenshot.url}}")
                 img.portfolioItem(src="{% static 'uploads/' %}{{project.preview.url}}", data-name="{{project.title}}")
-        .cf
 
 
 //- end of file
