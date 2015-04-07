@@ -56,7 +56,7 @@ class Post(models.Model):
     body = models.TextField()
     creation_date = models.DateTimeField(auto_now_add = True)
     post_date = models.DateTimeField(blank=True, null=True)
-    slug = models.SlugField(blank=True)
+    slug = models.SlugField(blank=True, max_length=50)
     format = models.CharField(max_length = 20)
 
 
