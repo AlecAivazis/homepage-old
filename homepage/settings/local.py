@@ -15,6 +15,9 @@ COMPRESS_DEBUG_TOGGLE = True
 # change the django compressor settings to point to a more friendly place
 COMPRESS_ROOT = RESOURCES
 
+# change the location we upload to in local dev
+MEDIA_ROOT = os.path.join(RESOURCES, 'uploads')
+
 # add django_toolbar to the installed apps
 INSTALLED_APPS += ("debug_toolbar", )
 
