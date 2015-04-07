@@ -20,6 +20,7 @@ import homepage
 # folder definitions
 BASE = os.path.abspath(os.path.join(homepage.home, os.pardir))
 WEB = os.path.join(BASE, 'web')
+STATIC_DIR = os.path.join(BASE, 'static')
 # important folder definitions
 TEMPLATES = os.path.join(WEB, 'templates')
 RESOURCES = os.path.join(WEB, 'resources')

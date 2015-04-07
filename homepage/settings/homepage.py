@@ -47,8 +47,12 @@ APPEND_SLASH = True
 # Static files (CSS, JavaScript, Images)
 
 STATIC_URL = '/static/'
-STATIC_ROOT = RESOURCES
+STATIC_ROOT = STATIC_DIR
 MEDIA_ROOT = UPLOADS
+
+STATICFILES_DIRS = (
+    RESOURCES,
+)
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',

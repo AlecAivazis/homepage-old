@@ -16,8 +16,12 @@ COMPRESS_DEBUG_TOGGLE = True
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE, 'var', 'homepage', 'homepage.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2', 
+        'NAME': 'homepage',
+        'USER': 'homepage',
+        'PASSWORD': 'darksteel',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
