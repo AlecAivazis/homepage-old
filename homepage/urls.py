@@ -20,6 +20,11 @@ urlpatterns = patterns('',
     url(r'(?i)blog/', include(blog.urls)),
     url(r'', include(core.urls)),
     # add the static urls
-) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+)
+
+# if the debug flag is true
+if settings.DEBUG:
+    # add the static urls to the local config
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.RESOURCES)
 
 # end of file
