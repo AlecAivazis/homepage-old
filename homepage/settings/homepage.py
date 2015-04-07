@@ -75,7 +75,7 @@ TEMPLATE_DIRS = (
 
 # django compressor settings
 
-COMPRESS_ROOT = RESOURCES
+COMPRESS_ROOT = STATIC_DIR
 COMPRESS_OUTPUT_DIR = "cache"
 
 stylus_conf = ('-u jeet -u axis -u rupture -I ' +
