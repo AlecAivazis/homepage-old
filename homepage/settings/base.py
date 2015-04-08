@@ -29,7 +29,7 @@ UPLOADS = os.path.join(STATIC_DIR, 'uploads')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'c_j=+(4w66f+w0z22j$oapix_974gnq8@9+r4)hjf0gea%qd1j'
 
-WSGI_APPLICATION = 'conf.wsgi'
+#WSGI_APPLICATION = 'conf.wsgi'
 
 ALLOWED_HOSTS = ['104.236.200.165']
 # Internationalization
