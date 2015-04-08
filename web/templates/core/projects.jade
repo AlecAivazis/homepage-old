@@ -25,7 +25,7 @@ block title
 
 block content
     section#portfolio
-        for project in view.projects
+        for project in projects
             a.imageLink(href="{% static 'uploads/' %}{{project.screenshot.url}}", data-name="{{project.title}}")
                 .title
                     span {{project.title}}
