@@ -24,8 +24,15 @@ class Projects(TemplateView):
     render the portfolio
     """
     template_name = 'core/projects.jade'
-    # add the various projects to the view
-    projects = Project.objects.all()
+
+    def get_context_data(self, **kwargs):
+        """ add the necessary context variables for the project view """
+        # get the parent context
+        context = super().get_context_data()
+        # add the projects to the context
+        context['projects'] = Project.objects.all()
+        # return the augmented context
+        return context
 
 
 class About(TemplateView):
