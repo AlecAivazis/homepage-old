@@ -11,7 +11,7 @@ if __name__ == "__main__":
     import os
     import sys
     # point django to the project settings
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "homepage.settings.local")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "homepage.settings.live")
     # pull the shell
     import django.core.management
     # and invoke it
