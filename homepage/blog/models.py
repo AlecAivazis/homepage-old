@@ -120,7 +120,7 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         """ Make sure we automatically generate the post slugs """
         # if the post has yet to go live or this is the first time its created
-        if (self.post_date and self.post_date > timezone.now()) or not self.id:
+        if (self.post_date and self.post_date > timezone.now()) or not self.id or not self.slug:
             # set the slug of the post off of the first 50 characters
             self.slug = slugify(Truncator(self.title).chars(50))
         # save the changes
