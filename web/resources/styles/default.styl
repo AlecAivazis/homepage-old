@@ -116,7 +116,7 @@ aside, #aboutInfo
       &:nth-child(2)
         margin-right: 20px
   
-.extra
+.extra, .smallextra
   display: none
 
     
@@ -335,11 +335,8 @@ article
     &.about
       span(2/3)
 
-  header a
-    display: block !important
-
   .extra
-    inline-block()
+    inline-block() !important
 
 
 +below($lowerBreakPoint)
@@ -359,6 +356,12 @@ article
 
     .close
       right: 5%
+
+  .smallextra
+    inline-block()
+
+  .extra
+    display: none
 
   .postPreview
     
