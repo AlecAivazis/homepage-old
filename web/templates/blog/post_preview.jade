@@ -1,8 +1,6 @@
 //- the template for a post preview 
 //- author: alec aivazis
 
-- load truncate
-
 section.postPreview
     header
         a(href="{{post.get_absolute_url}}")
@@ -11,7 +9,8 @@ section.postPreview
         .cf
     
     {% autoescape off %}
-    section.body {{post.body_clean | truncate:200 }} test
+    section.body 
+        | {{post.body_clean|truncatechars_html:200 }} 
     {% endautoescape %}
     footer
         a.readMore(href="{{post.get_absolute_url}}")
