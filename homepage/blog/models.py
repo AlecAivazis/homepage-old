@@ -59,10 +59,14 @@ class Post(models.Model):
     slug = models.SlugField(blank=True, max_length=50)
     format = models.CharField(max_length = 20)
 
-
     tags = TaggableManager()
 
     objects = PostQuerySet.as_manager()
+
+
+    def __str__(self):
+        """ Return the string representation of the Post """
+        return self.title
 
 
     @property
