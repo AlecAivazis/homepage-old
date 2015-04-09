@@ -23,6 +23,7 @@ def update_dependencies():
     # go into the folder with the dependency files
     with lcd('doc'):
         # install python dependencies
+        local('pip install -r requirements.txt')
         # install bower dependencies
         local('bower install')
 
@@ -39,11 +40,14 @@ def init():
 @task
 def deploy():
     """ deploy the application """
+    # push any changes to the local repository
+    local('git push')
+    # inside of the remote repository directory
     with cd('repository'):
         # update the repository
         run('git pull origin master')
         # update the local dependencies
-        run('fab update_dependencies')
+        # run('fab update_dependencies')
         # update the database
         run('./manage.py migrate')
         # update the static files
