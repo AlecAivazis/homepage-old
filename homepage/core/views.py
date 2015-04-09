@@ -9,7 +9,7 @@
 from .models import Project
 
 # django imports
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 
 
 class Home(TemplateView):
@@ -19,20 +19,12 @@ class Home(TemplateView):
     template_name = 'splash.jade'
 
 
-class Projects(TemplateView):
+class Projects(ListView):
     """
     The Projects view
     """
     template_name = 'core/projects.jade'
-
-    def get_context_data(self, **kwargs):
-        """ add the necessary context variables for the project view """
-        # get the parent context
-        context = super().get_context_data()
-        # add the projects to the context
-        context['projects'] = Project.objects.all()
-        # return the augmented context
-        return context
+    queryset = Project.objects
 
 
 class About(TemplateView):
