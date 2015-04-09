@@ -42,15 +42,15 @@ html
             i.icon.icon-x.icon-stack-1x
             i.icon.icon-circle-thin.icon-stack-2x
         ul
-            a(href="/about")
+            a(href="{% url 'about' %}")
                 li 
                     i.icon.icon-smile
                     | about
-            a(href="/projects")
+            a(href="{% url 'projects' %}")
                 li 
                     i.icon.icon-doc
                     | my projects
-            a(href="/blog")
+            a(href="{% url 'blog_latest' %}")
                 li 
                     i.icon.icon-pencil
                     | blog

@@ -14,8 +14,8 @@ block body
     #splash(style="background-image: url({% static 'images/splash.png' %});")
         section Welcome to my playground.
         nav
-            a(href="/about") about
-            a(href="/projects") projects
-            a(href="/blog") blog
+            a(href="{% url 'about' %}") about
+            a(href="{% url 'projects' %}") projects
+            a(href="{% url 'blog_latest' %}") blog
 
 //-

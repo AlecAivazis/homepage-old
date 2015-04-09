@@ -14,9 +14,9 @@ from .views import *
 
 # base urls
 urlpatterns = patterns('',
-    url(r'(?i)^about/$', About.as_view()),
-    url(r'(?i)^projects/$', Projects.as_view()),
-    url(r'(?i)^$', Home.as_view()),
+    url(r'^about/$', About.as_view(), name="about"),
+    url(r'^projects/$', Projects.as_view(), name="projects"),
+    url(r'^$', Home.as_view()),
 )
 
 # end of file
