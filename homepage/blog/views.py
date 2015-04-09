@@ -61,7 +61,6 @@ class PostDetail(DetailView):
     """
     Individual post details
     """
-
     queryset = Post.objects
     template_name = 'blog/post_detail.jade'
 
