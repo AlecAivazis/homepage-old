@@ -14,14 +14,14 @@ from django.views.generic import TemplateView
 
 class Home(TemplateView):
     """
-    render the index template
+    The index template
     """
     template_name = 'splash.jade'
 
 
 class Projects(TemplateView):
     """
-    render the portfolio
+    The Projects view
     """
     template_name = 'core/projects.jade'
 
@@ -37,7 +37,7 @@ class Projects(TemplateView):
 
 class About(TemplateView):
     """
-    render the about me page
+    The about me page
     """
     template_name = 'core/about.jade'
 
