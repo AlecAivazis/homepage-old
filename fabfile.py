@@ -3,41 +3,54 @@
 # this file describes the various tasks necessary to manage and build homepage
 # author: alec aivazis
 
-# the name of the project
-project_name = "homepage"
+from fabric.api import *
 
-# invoke imports
-from fabric.api import local, cd, lcd
+# the server hosting the project
+env.hosts = ['104.236.200.165']
+# the user to connect to the server as
+env.user = "homepage"
 
+
+@task
 def server():
     """ run the local server """
     local('./manage.py runserver')
 
 
-def init():
-    """ perform the necessary tasks to initialize the project locally """
-
+@task
+def update_dependencies():
+    """ update the project dependencies """
     # go into the folder with the dependency files
     with lcd('doc'):
         # install python dependencies
-        local('pip install -r requirements.txt')
+        #local('pip install -r requirements.txt')
         # install bower dependencies
         local('bower install')
 
+
+@task
+def init():
+    """ perform the necessary tasks to initialize the project locally """
+    # update the local dependencies
+    update_dependencies()
     # create the local database
     local('./manage.py syncdb')
-    
-
-def init_server():
-    """ initialize the local project and then run the server """
-    execute(init)
-    execute(server)
 
 
+@task
 def deploy():
-    """ deploy the application to orthologue """
-
-
+    """ deploy the application """
+    with cd('repository'):
+        # update the repository
+        run('git pull origin master')
+        # update the local dependencies
+        run('fab update_dependencies')
+        # update the database
+        run('./manage.py migrate')
+        # update the static files
+        run('./manage.py collectstatic')
+        # restart the application server
+        run('sudo service gunicorn restart')
 
 
 # end of file
