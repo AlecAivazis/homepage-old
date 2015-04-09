@@ -23,7 +23,6 @@ def update_dependencies():
     # go into the folder with the dependency files
     with lcd('doc'):
         # install python dependencies
-        #local('pip install -r requirements.txt')
         # install bower dependencies
         local('bower install')
 
