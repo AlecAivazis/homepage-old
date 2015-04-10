@@ -12,6 +12,7 @@
 extends index
 
 - load staticfiles
+- load disqus_tags
 
 
 append css
@@ -29,5 +30,8 @@ block content
             {% autoescape off %}
             | {{object.body_clean}}
             {% endautoescape %}
+    #comments
+        {% disqus_show_comments %}
+
 
 // end of file

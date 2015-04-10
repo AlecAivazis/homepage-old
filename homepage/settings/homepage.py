@@ -16,11 +16,15 @@ django_apps = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 )
+
+SITE_ID = 1
 
 third_party_apps = (
     'compressor',
     'taggit',
+    'disqus',
  )
 
 homepage_apps = (
@@ -39,6 +43,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
 
 ROOT_URLCONF = 'homepage.urls'
 
@@ -86,5 +91,11 @@ COMPRESS_PRECOMPILERS = (
     ('text/stylus', 'stylus '+ stylus_conf),
     ('text/coffeescript', 'coffee --compile --stdio -b'),
 )
+
+
+# disqus settings
+
+DISQUS_API_KEY = '3ScmTICLbcZkN9WIsUzXLGv2tAQWRFKKYZXqJjHdT2ePr8QNAk6K23K5k0vidozi'
+DISQUS_WEBSITE_SHORTNAME = 'alecaivazis'
 
 # end of file
