@@ -69,50 +69,6 @@ class Post(models.Model):
         return self.title
 
 
-    @property
-    def body_clean(self):
-        """ Return an HTML safe version of the body (render markdown if necessary) """
-        # plaintext
-        if self.format == 'text':
-            # just return the content (it's already safe)
-            return self.body
-        # html
-        elif self.format == 'html':
-            # just return the content (it's already safe)
-            return self.body
-        # markdown
-        elif self.format == 'markdown':
-            # generate the html document using github's api
-            content = ''
-            # define the request header
-            headers = {'Content-type': 'text/plain'}
-
-            # make sure that the body is in the right encoding
-            if type(self.body) == str:
-                # encode the body as utf
-                content = self.body.encode('utf-8')
-            # otherwise if its a byte string
-            elif type(self.body) == byte:
-                # don't do anything
-                content = self.body
-            # otherwise its some crazy type I don't know about
-            else:
-                # throw an exception
-                raise FieldError('Unable to encode post for GitHub api.')
-
-            # make a request to the github servers
-            request = requests.post('https://api.github.com/markdown/raw', 
-                                            headers=headers, data=content)
-
-            # return the response text
-            return request.text
-
-        # otherwise it is a format I don't expect
-        else:
-            # throw an exception
-            raise ValidationError('Unknown content format.')
-
-
     @models.permalink
     def get_absolute_url(self):
         """ Return a permanent URL where this post can be viewed """

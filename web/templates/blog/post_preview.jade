@@ -1,6 +1,8 @@
 //- the template for a post preview 
 //- author: alec aivazis
 
+- load render_as
+
 section.postPreview
     header
         a(href="{{post.get_absolute_url}}")
@@ -8,10 +10,9 @@ section.postPreview
         h2.date {{post.post_date | date:"M j, 'y"}}
         .cf
     
-    {% autoescape off %}
     section.body 
-        | {{post.body_clean|truncatechars_html:200 }} 
-    {% endautoescape %}
+        | {{post.body | render_as:post.format | truncatechars_html:200 }} 
+
     footer
         a.readMore(href="{{post.get_absolute_url}}")
             i.icon.icon-long-arrow-right

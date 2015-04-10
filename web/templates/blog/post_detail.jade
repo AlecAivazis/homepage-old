@@ -13,7 +13,7 @@ extends index
 
 - load staticfiles
 - load disqus_tags
-
+- load render_as
 
 append css
     link(rel="stylesheet", type="text/stylus", href="{% static 'styles/blog.styl' %}")
@@ -27,9 +27,7 @@ block content
     #post
         h1.title {{object.title}}
         section 
-            {% autoescape off %}
-            | {{object.body_clean}}
-            {% endautoescape %}
+            | {{object.body | render_as:object.format}}
     #comments
         {% disqus_show_comments %}
 
