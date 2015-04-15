@@ -20,6 +20,26 @@ append css
     link(rel="stylesheet", href="{% static 'styles/syntax.css' %}")
 
 
+append head
+    script(type="application/ld+json").
+        {
+            "@context": "http://schema.org",
+            "@type": "Article",
+            "author": {
+                "@type": "Person",
+                "name": "Alec Aivazis",
+                "image": "//gravatar.com/avatar/6316bcca8f7714d6190bbc111af62b26",
+                "url": "http://alec.aivazis.com",
+                "sameAs": null,
+                "description": null
+            },
+            "headline": "{{object.title}}",
+            "url": "//alec.avazis.com{{object.get_absolute_url}}",
+            "datePublished": "{{object.post_date | date:"c"}}",
+            "dateModified": "{{object.post_date | date:"c"}}",
+            "description": "{{post.body | render_as:post.format |  truncatechars_html:200 | striptags }}"
+        }
+
 block title
     .post_date {{object.post_date | date:"F j, o"}}
 
