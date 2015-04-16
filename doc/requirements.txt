@@ -2,11 +2,13 @@ Django==1.7.4
 django-appconf==1.0.1
 django-compressor==1.4
 django-debug-toolbar==1.2.2
-django-disqus
+django-disqus==0.5
 django-extensions==1.4.9
 django-taggit==0.13.0
 ecdsa==0.13
 Fabric==1.10.1
+markdown2==2.3.0
+mock==1.0.1
 paramiko==1.15.2
 pycrypto==2.6.1
 pyjade==3.0.0

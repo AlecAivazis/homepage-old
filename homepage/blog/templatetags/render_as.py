@@ -27,20 +27,16 @@ def render_as(value, format):
 
 def markdown(value):
     """ Render the text using a custom markdown engine """
+    import markdown2
+    # mark the rendered string as html safe
+    return mark_safe(markdown2.markdown(value, 
+                     extras=['fenced-code-blocks', 'footnotes']))
 
-    # define the request header
-    headers = {'Content-type': 'text/plain'}
-
-    # make a request to the github servers
-    request = requests.post('https://api.github.com/markdown/raw', 
-                                    headers=headers, data=value)
-
-    # return the response text
-    return mark_safe(request.text)
 
 def html(value):
     """ Render the html """
     return mark_safe(value)
+
 
 def text(value):
     """ Render the raw text """
