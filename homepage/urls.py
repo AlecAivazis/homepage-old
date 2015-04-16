@@ -14,11 +14,19 @@ from django.conf import settings
 # import the homepageapplications
 from . import core, blog
 
+# define the necessary sitemaps
+sitemap = {
+    'blog': blog.sitemap.BlogSitemap(),
+    'core': core.sitemap.Sitemap()
+}
+
 # define the primary url patterns
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'(?i)blog/', include(blog.urls)),
     url(r'', include(core.urls)),
+    url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemap},
+                name='django.contrib.sitemaps.views.sitemap')
     # add the static urls
 )
 

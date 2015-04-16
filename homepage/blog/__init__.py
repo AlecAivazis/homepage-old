@@ -4,6 +4,6 @@
 # alec aivazis
 #
 # access to the local modules
-from . import urls
+from . import urls, sitemap
 
 # end of file
