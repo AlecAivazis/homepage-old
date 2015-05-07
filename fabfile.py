@@ -14,7 +14,7 @@ env.user = "homepage"
 @task
 def server():
     """ run the local server """
-    local('./manage.py runserver')
+    local('./manage.py livereload 8000')
 
 
 @task
