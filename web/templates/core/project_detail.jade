@@ -20,6 +20,11 @@ block title
     | {{object.title}}
 
 block content
-    | hello
+    .project_details
+        .project_description
+            | {{object.description}}
+
+        for screenshot in object.screenshots.all
+            img.project_screenshot(src="{% static 'uploads/' %}{{screenshot.file.url}}")
 
 //- end of file

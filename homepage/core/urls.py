@@ -16,6 +16,7 @@ from .views import *
 urlpatterns = patterns('',
     url(r'^about/$', About.as_view(), name="about"),
     url(r'^projects/$', Projects.as_view(), name="projects"),
+    url(r'^projects/(?P<name>[\w-]+)$', ProjectDetail.as_view(), name="project_detail"),
     url(r'^$', Home.as_view()),
 )
 

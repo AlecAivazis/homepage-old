@@ -26,6 +26,13 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 
+    @models.permalink
+    def get_absolute_url(self):
+        """ Return a permanent URL where this project can be viewed """
+        return ('project_detail', (), {
+            'name': self.title
+        })
+
 
 class ProjectScreenshot(models.Model):
     """ The model for a scheen shot associated with a given project """
