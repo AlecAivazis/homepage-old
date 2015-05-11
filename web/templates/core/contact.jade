@@ -1,0 +1,23 @@
+//-*- Jade -*-
+//-*- coding: utf-8 -*-
+//-
+//- Alec Aivazis <alec@aivazis.com>
+//- 
+//- (c) 2014-2015 all rights reserved
+//-
+
+// about me
+
+extends index
+
+- load staticfiles
+
+block title
+    | Contact Me
+
+block content
+    form
+        {% csrf_token %}
+
+
+//- end of file

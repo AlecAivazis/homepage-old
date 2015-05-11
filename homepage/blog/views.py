@@ -7,6 +7,7 @@
 
 # django imports
 from django.views.generic import ListView, DetailView
+from urllib.parse import unquote as url_parse
 
 # homepage imports
 from .models import Post
@@ -50,14 +51,14 @@ class CategoryList(ListView):
         # grab the parent context
         context = super().get_context_data(**kwargs)
         # add the title of the page
-        context['title'] = 'Posts matching "{}"'.format(self.kwargs['tag']) 
+        context['title'] = 'Posts matching "{}"'.format(url_parse(self.kwargs['tag'])) 
         # return the new context
         return context
 
 
     def get_queryset(self):
         """ Return the latest posts """
-        return Post.objects.visible().with_tag(self.kwargs['tag'])
+        return Post.objects.visible().with_tag(url_parse(self.kwargs['tag']))
 
 
 class PostDetail(DetailView):
