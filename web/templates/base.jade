@@ -45,17 +45,29 @@ html
             a(href="{% url 'about' %}")
                 li 
                     i.icon.icon-smile
-                    | about
+                    | about me
             a(href="{% url 'projects' %}")
                 li 
                     i.icon.icon-doc
-                    | my projects
+                    | projects
             a(href="{% url 'blog_latest' %}")
                 li 
                     i.icon.icon-pencil
-                    | blog
+                    | my blog
+            a(href="{% static 'misc/resume.pdf' %}")
+                li.extra.smallextra
+                    i.icon.icon-file
+                    | my resume
             a#contact(href="/contact").
                 <script>document.getElementById("contact").innerHTML="<n uers=\"znvygb:uv@nvinmvf.pbz\" gnetrg=\"_oynax\"><yv><v pynff=\"vpba vpba-pbagnpg\"></v> pbagnpg zr</yv></n>".replace(/[a-zA-Z]/g,function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);});</script>
                 <noscript><span style="unicode-bidi:bidi-override;direction:rtl;"><i class="icon icon-contact"></i>moc.sizavia@ih</span></noscript>
+            a(href="http://www.facebook.com/aaivazis").facebook
+                li.extra.smallextra
+                    i.icon.icon-facebook
+                    | facebook
+            a(href="http://www.github.com/aaivazis").github
+                li.extra.smallextra
+                    i.icon.icon-github
+                    | github
 
 // end of file
