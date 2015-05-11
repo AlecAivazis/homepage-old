@@ -21,6 +21,9 @@ class Latest(ListView):
         """
         Add the necessary data for the template
         """
+
+        print(__name__)
+
         # grab the parent context
         context = super().get_context_data(**kwargs)
         # add the title of the page
@@ -54,7 +57,7 @@ class CategoryList(ListView):
 
     def get_queryset(self):
         """ Return the latest posts """
-        return Post.objects.with_tag(self.kwargs['tag'])
+        return Post.objects.visible().with_tag(self.kwargs['tag'])
 
 
 class PostDetail(DetailView):
