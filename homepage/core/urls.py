@@ -18,6 +18,7 @@ urlpatterns = patterns('',
     url(r'^projects/$', Projects.as_view(), name="projects"),
     url(r'^projects/(?P<name>[\w-]+)$', ProjectDetail.as_view(), name="project_detail"),
     url(r'^$', Home.as_view()),
+    url(r'^robots\.txt$', Robots.as_view())
 )
 
 # end of file

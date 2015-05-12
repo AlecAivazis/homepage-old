@@ -25,8 +25,9 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'(?i)blog/', include(blog.urls)),
     url(r'', include(core.urls)),
-    url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemap},
-                name='django.contrib.sitemaps.views.sitemap')
+    url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', 
+            {'sitemaps': sitemap}, name='django.contrib.sitemaps.views.sitemap'),
+
     # add the static urls
 )
 
