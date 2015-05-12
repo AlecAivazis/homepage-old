@@ -1,0 +1,3 @@
+User-Agent: *
+Disallow: /blog/category
+Sitemap: http://alec.aivazis.com/sitemap.xml

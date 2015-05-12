@@ -42,4 +42,11 @@ class About(TemplateView):
     template_name = 'core/about.jade'
 
 
+class Robots(TemplateView):
+    """ 
+    Render the robots.txt file
+    """
+    template_name = "robots.txt"
+    content_type = "text/plain"
+
 # end of file
