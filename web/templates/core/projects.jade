@@ -26,7 +26,7 @@ block title
 block content
     section#portfolio
         for project in object_list.all
-            a.imageLink(href="{% static 'uploads/' %}{{project.screenshot.url}}", data-name="{{project.title}}")
+            a(href="{{ project.get_absolute_url }}")
                 .title
                     span {{project.title}}
                 img.portfolioItem(src="{% static 'uploads/' %}{{project.preview.url}}")

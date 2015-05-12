@@ -9,7 +9,7 @@
 from .models import Project
 
 # django imports
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, DetailView
 
 
 class Home(TemplateView):
@@ -25,6 +25,14 @@ class Projects(ListView):
     """
     template_name = 'core/projects.jade'
     queryset = Project.objects
+
+
+class ProjectDetail(DetailView):
+    # base the urls on the name of the project
+    slug_field = 'title'
+    slug_url_kwarg = 'name'
+    model = Project
+    template_name = 'core/project_detail.jade'
 
 
 class About(TemplateView):

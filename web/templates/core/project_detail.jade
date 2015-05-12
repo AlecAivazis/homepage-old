@@ -1,0 +1,30 @@
+//-*- Jade -*-
+//-*- coding: utf-8 -*-
+//-
+//- Alec Aivazis <alec@aivazis.com>
+//- 
+//- (c) 2014-2015 all rights reserved
+//-
+
+// my portfolio
+
+extends index
+
+- load staticfiles
+
+
+append js
+    script(src="{% static 'scripts/projects.coffee' %}", type="text/coffeescript")
+
+block title
+    | {{object.title}}
+
+block content
+    .project_details
+        .project_description
+            | {{object.description}}
+
+        for screenshot in object.screenshots.all
+            img.project_screenshot(src="{% static 'uploads/' %}{{screenshot.file.url}}")
+
+//- end of file
