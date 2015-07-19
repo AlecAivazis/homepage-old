@@ -27,7 +27,7 @@ RESOURCES = os.path.join(WEB, 'resources')
 UPLOADS = os.path.join(STATIC_DIR, 'uploads')
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'c_j=+(4w66f+w0z22j$oapix_974gnq8@9+r4)hjf0gea%qd1j'
+SECRET_KEY = os.environ.get('secret_KEY')
 
 #WSGI_APPLICATION = 'conf.wsgi'
 
