@@ -13,6 +13,7 @@ class Project(models.Model):
     description = models.CharField(max_length=1020)
     preview = models.FileField()
     link = models.CharField(max_length=1020, blank=True)
+    github = models.CharField(max_length=1020, blank=True)
 
     # definitions for type choices
     TYPE_CHOICES = (
