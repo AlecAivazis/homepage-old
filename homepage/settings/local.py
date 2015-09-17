@@ -12,6 +12,8 @@ DEBUG = True
 TEMPLATE_DEBUG = True
 COMPRESS_DEBUG_TOGGLE = True
 
+SECRET_KEY = "secret_foo"
+
 # change the django compressor settings to point to a more friendly place
 COMPRESS_ROOT = RESOURCES
 
