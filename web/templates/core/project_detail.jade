@@ -25,10 +25,10 @@ block content
             | {{object.description}}
         if object.link
             a(href="{{object.link}}" target="_blank")
-                button.submit_button view live
+                button.live_demo view live
         if object.github
             a(href="{{object.github}}" target="_blank")
-                button.submit_button view live
+                button.github github
 
         for screenshot in object.screenshots.all
             img.project_screenshot(src="{% static 'uploads/' %}{{screenshot.file.url}}")
