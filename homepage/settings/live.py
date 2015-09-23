@@ -8,7 +8,7 @@
 from .homepage import *
 
 # enable debugging support
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = False
 
 # Database
